@@ -1,0 +1,302 @@
+/*
+* Import fonts
+*/
+@font-face {
+    font-family: "Open Sans";
+    src: url(assets/openSans.ttf);
+}
+
+/*
+* Colors
+*/
+:root {
+    --color-main: #FF7800;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Open Sans";
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    font-size: 7em;
+}
+h2 {
+    font-size: 6em;
+}
+h3 {
+    font-size: 5em;
+}
+h4 {
+    font-size: 3em;
+}
+h5 {
+    font-size: 1.5em;
+}
+h6 {
+    font-size: 1em;
+}
+
+
+/*
+* Styling for inputs
+*/
+input[type=text], button {
+    font-size: 1.5em;
+    background: none;
+    /* So that the box doesn't jump when the border is added on focus */
+    border: none;
+    border-bottom: 3px solid white;
+    padding: 1%;
+    width: 40%;
+}
+input[type=text]:focus, input[type=text]:hover, button:focus, button:hover, #connectWithStrava:hover {
+    outline: none;
+    box-shadow: black 0 0 20px;
+}
+
+input[type=text], button, #connectWithStrava {
+    transition: box-shadow 0.5s, border-bottom 0.5s;
+}
+
+button:hover, #connectWithStrava:hover {
+    cursor: pointer;
+}
+
+input[type=text]::placeholder {
+    color: lightgrey;
+}
+
+/*
+* Container styling
+*/
+#container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url(assets/background.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+
+    display: grid;
+    grid: 5% 1fr / 1fr 4fr 1fr;
+}
+
+#container > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    height: 100%;
+    width: 100%;
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+/*
+* Styling for home page
+*/
+#home > .title {
+    order: 1;
+    text-align: center;
+}
+
+#connectWithStrava {
+    order: 2;
+    width: 30%;
+}
+
+/*
+* Styling for the configuration section
+*/
+#config > .section {
+    width: 100%;
+    border-top: 3px solid var(--color-main);
+    border-left: none;
+    border-right: none;
+}
+
+#colorSection {
+    display: grid;
+    grid: 1fr 1fr 1fr / 1fr 1fr;
+    gap: 2%;
+    align-items: center;
+}
+#colorSection > h4 {
+    justify-self: center;
+    grid-area: 1 / 1 / 2 / 3
+}
+#colorSection > h5 {
+    justify-self: right;
+}
+
+#activitySection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#activitySection > input {
+    margin-top: 2%;
+}
+
+#activityTagError {
+    padding: 0.5%;
+    background: red;
+}
+
+#generateSection {
+    display: flex;
+    justify-content: center;
+}
+#generateButton {
+    margin-top: 2%;
+}
+
+/*
+* Styling for the output container
+*/
+#outputContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#output {
+    position: absolute;
+}
+
+/*
+* Styling for control overlay
+*/
+#controlOverlay {
+    position: fixed;
+    top: 10%;
+    right: 2%;
+    background: rgba(1, 1, 1, 0.5);
+    padding: 1%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#controlOverlay > * {
+    font-size: 1.5em;
+    flex-grow: 1;
+    cursor: pointer;
+    text-align: center;
+}
+
+/*
+* Styling for loader
+*/
+#loader {
+    position: relative;
+    background: var(--color-main);
+    grid-area: 1 / 1 / 2 / 4;
+}
+#loader > div {
+    background: white;
+    position: absolute;
+    bottom: 0;
+    height: 10%;
+}
+
+.loading > div {
+    animation: loading 3s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: 0;
+        right: 100%;
+    }
+    50% {
+        left: 0;
+        right: 25%;
+    }
+    100% {
+        left: 100%;
+        right: 0;
+    }
+}
+
+/*
+* Sticky logo for 'Powered by Strava'
+*/
+#poweredByStrava {
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    width: 10%;
+}
+
+/*
+* Other extra things
+*/
+*[disabled] {
+    cursor: not-allowed !important;
+}
+.hidden {
+    display: none !important;
+}
+.error {
+    border-bottom: 3px solid red !important;
+    background-image: radial-gradient(red 15%, transparent 16%) !important;
+    background-size: 1.5em 1.5em !important;
+    background-position: center right !important;
+    background-repeat: no-repeat !important;
+}
+
+/*
+* Media queries
+*/
+@media (max-device-width: 1300px) {
+    h2 {
+        font-size: 5em;
+    }
+    h3 {
+        font-size: 4em;
+    }
+    #container {
+        grid-template-columns: 5% 1fr 5%;
+    }
+    #connectWithStrava {
+        width: 50%;
+    }
+    #controlOverlay > * {
+        font-size: 2em;
+    }
+    #poweredByStrava {
+        width: 15%;
+    }
+}
+@media (max-device-width: 900px) {
+    h1 {
+        font-size: 5em;
+    }
+    h2 {
+        font-size: 3.5em;
+    }
+    h3 {
+        font-size: 3em;
+    }
+    h4 {
+        font-size: 2.5em;
+    }
+}
+@media (max-device-width: 450px) {
+    #controlOverlay {
+        top: auto;
+        bottom: 2%;
+        left: 5%;
+        right: 5%;
+        flex-direction: row;
+    }
+}

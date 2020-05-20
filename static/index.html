@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Run the Streets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="assets/pickr/pickr.min.css" type="text/css" rel="stylesheet"/>
+    <link href="main.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="container">
+        <div id="loader">
+            <div></div>
+        </div>
+        <div id="home">
+            <h1 class="title">Run the Streets</h1>
+            <img id="connectWithStrava" src="assets/strava/connectWith.svg"/>
+        </div>
+        <div id="config" class="hidden">
+            <h2>Configuration</h2>
+            <div class="section" id="colorSection">
+                <h4>Colors</h4>
+                <h5>Background:</h5>
+                <div id="backgroundColor"></div>
+                <h5>Lines:</h5>
+                <div id="lineColor"></div>
+            </div>
+            <div class="section" id="activitySection">
+                <h4>Activities</h4>
+                <p>Select activities based off a tag in the title</p>
+                <input type="text" id="activityTag" placeholder="Activity Tag"/>
+                <p id="activityTagError" class="hidden"></p>
+            </div>
+            <div class="section" id="generateSection">
+                <button id="generateButton">Generate</button>
+            </div>
+        </div>
+    </div>
+    <div id="outputContainer" class="hidden">
+        <canvas id="output"></canvas>
+        <div id="controlOverlay">
+            <p id="configButton">&#x2699;</p>
+            <p id="downloadButton">&#x21a7;</p>
+        </div>
+    </div>
+    <a href="https://www.strava.com" target="_blank"><img id="poweredByStrava" src="assets/strava/poweredBy.svg"/></a>
+    <script src="assets/pickr/pickr.min.js"></script>
+    <script src="strava.js"></script>
+    <script src="map.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
